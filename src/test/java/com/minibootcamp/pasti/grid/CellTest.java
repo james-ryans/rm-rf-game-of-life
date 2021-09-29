@@ -21,4 +21,13 @@ public class CellTest {
 
         assertTrue(cell.isAlive());
     }
+
+    @Test
+    void isAlive_ReturnFalse_WhenCellIsSetToDie() {
+        Cell cell = new Cell();
+        cell.populate();
+        cell.die();
+
+        assertFalse(cell.isAlive());
+    }
 }

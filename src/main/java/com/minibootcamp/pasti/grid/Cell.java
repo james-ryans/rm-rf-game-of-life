@@ -14,4 +14,8 @@ public class Cell {
     public void populate() {
         isAlive = true;
     }
+
+    public void die() {
+        isAlive = false;
+    }
 }
