@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class GridTest {
 
     @Test
-    void grid_HasOneDeadCell_WhenConstructed() {
-        Grid grid = new Grid();
+    void grid_HasAllDeadCell_WhenConstructed() {
+        Grid grid = new Grid(1, 1);
 
-        assertFalse(grid.cell.isAlive());
+        assertFalse(grid.cells[0][0].isAlive());
     }
 }
