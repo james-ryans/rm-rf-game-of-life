@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
+    int rows;
     Cell[][] cells;
 
     public Grid(int rows, int cols) {
-        cells = new Cell[rows][cols];
+        this.rows = rows;
+        this.cells = new Cell[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 cells[i][j] = new Cell();
@@ -23,7 +25,7 @@ public class Grid {
         for (int i = 0; i < 8; i++) {
             int x = row + neighbourX.get(i);
             int y = col + neighbourY.get(i);
-            if (x >= 0) {
+            if (0 <= x && x < rows) {
                 neighbours.add(cells[x][y]);
             }
         }
