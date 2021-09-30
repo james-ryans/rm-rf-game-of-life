@@ -1,6 +1,6 @@
 package com.minibootcamp.pasti.grid;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
@@ -15,11 +15,19 @@ public class Grid {
         }
     }
 
-    public Collection<Cell> getNeighbours(int row, int col) {
-        return List.of(
-            cells[row - 1][col - 1], cells[row - 1][col], cells[row - 1][col + 1],
-            cells[row][col - 1], cells[row][col + 1],
-            cells[row + 1][col - 1], cells[row + 1][col], cells[row + 1][col + 1]
-        );
+    public List<Cell> getNeighbours(int row, int col) {
+        List<Integer> neighbourX = List.of(-1,-1,-1, 0, 0, 1, 1, 1);
+        List<Integer> neighbourY = List.of(-1, 0, 1,-1, 1,-1, 0, 1);
+
+        List<Cell> neighbours = new ArrayList<>(List.of());
+        for (int i = 0; i < 8; i++) {
+            int x = row + neighbourX.get(i);
+            int y = col + neighbourY.get(i);
+            if (x >= 0) {
+                neighbours.add(cells[x][y]);
+            }
+        }
+
+        return neighbours;
     }
 }

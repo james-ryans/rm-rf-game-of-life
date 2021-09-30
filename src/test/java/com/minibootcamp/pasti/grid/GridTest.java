@@ -18,15 +18,27 @@ public class GridTest {
     }
 
     @Test
-    void getNeighbours_ReturnCollectionOfEightCells_AtMiddleCell() {
+    void getNeighbours_ReturnListOfEightCells_AtMiddleCell() {
         Grid grid = new Grid(3, 3);
 
-        Collection<Cell> expectedNeighbours = List.of(
+        List<Cell> expectedNeighbours = List.of(
             grid.cells[0][0], grid.cells[0][1], grid.cells[0][2],
             grid.cells[1][0], grid.cells[1][2],
             grid.cells[2][0], grid.cells[2][1], grid.cells[2][2]
         );
 
         assertEquals(expectedNeighbours, grid.getNeighbours(1, 1));
+    }
+
+    @Test
+    void getNeighbours_ReturnListWithoutItsTopNeighbours_AtTopmostCell() {
+        Grid grid = new Grid(3, 3);
+
+        List<Cell> expectedNeighbours = List.of(
+            grid.cells[0][0], grid.cells[0][2],
+            grid.cells[1][0], grid.cells[1][1], grid.cells[1][2]
+        );
+
+        assertEquals(expectedNeighbours, grid.getNeighbours(0, 1));
     }
 }
