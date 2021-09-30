@@ -53,4 +53,17 @@ public class GridTest {
 
         assertEquals(expectedNeighbours, grid.getNeighbours(2, 1));
     }
+
+    @Test
+    void getNeighbours_ReturnListWithoutItsLeftNeighbours_AtLeftmostCell() {
+        Grid grid = new Grid(3, 3);
+
+        List<Cell> expectedNeighbours = List.of(
+            grid.cells[0][0], grid.cells[0][1],
+            grid.cells[1][1],
+            grid.cells[2][0], grid.cells[2][1]
+        );
+
+        assertEquals(expectedNeighbours, grid.getNeighbours(1, 0));
+    }
 }

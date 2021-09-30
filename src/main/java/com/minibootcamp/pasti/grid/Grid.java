@@ -25,7 +25,7 @@ public class Grid {
         for (int i = 0; i < 8; i++) {
             int x = row + neighbourX.get(i);
             int y = col + neighbourY.get(i);
-            if (0 <= x && x < rows) {
+            if (0 <= x && x < rows && y >= 0) {
                 neighbours.add(cells[x][y]);
             }
         }
