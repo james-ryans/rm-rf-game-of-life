@@ -11,14 +11,21 @@ public class Grid {
         this.rows = rows;
         this.cols = cols;
         this.cells = new Cell[rows][cols];
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                cells[i][j] = new Cell();
+                this.cells[i][j] = new Cell();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                this.cells[i][j].setNeighbours(getNeighbours(i, j));
             }
         }
     }
 
-    public List<Cell> getNeighbours(int row, int col) {
+    private List<Cell> getNeighbours(int row, int col) {
         List<Integer> neighbourX = List.of(-1,-1,-1, 0, 0, 1, 1, 1);
         List<Integer> neighbourY = List.of(-1, 0, 1,-1, 1,-1, 0, 1);
 

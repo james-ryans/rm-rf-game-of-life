@@ -2,7 +2,6 @@ package com.minibootcamp.pasti.grid;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +26,7 @@ public class GridTest {
             grid.cells[2][0], grid.cells[2][1], grid.cells[2][2]
         );
 
-        assertEquals(expectedNeighbours, grid.getNeighbours(1, 1));
+        assertEquals(expectedNeighbours, grid.cells[1][1].getNeighbours());
     }
 
     @Test
@@ -39,7 +38,7 @@ public class GridTest {
             grid.cells[1][0], grid.cells[1][1], grid.cells[1][2]
         );
 
-        assertEquals(expectedNeighbours, grid.getNeighbours(0, 1));
+        assertEquals(expectedNeighbours, grid.cells[0][1].getNeighbours());
     }
 
     @Test
@@ -51,7 +50,7 @@ public class GridTest {
             grid.cells[2][0], grid.cells[2][2]
         );
 
-        assertEquals(expectedNeighbours, grid.getNeighbours(2, 1));
+        assertEquals(expectedNeighbours, grid.cells[2][1].getNeighbours());
     }
 
     @Test
@@ -64,7 +63,7 @@ public class GridTest {
             grid.cells[2][0], grid.cells[2][1]
         );
 
-        assertEquals(expectedNeighbours, grid.getNeighbours(1, 0));
+        assertEquals(expectedNeighbours, grid.cells[1][0].getNeighbours());
     }
 
     @Test
@@ -77,6 +76,6 @@ public class GridTest {
             grid.cells[2][1], grid.cells[2][2]
         );
 
-        assertEquals(expectedNeighbours, grid.getNeighbours(1, 2));
+        assertEquals(expectedNeighbours, grid.cells[1][2].getNeighbours());
     }
 }
