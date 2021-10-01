@@ -19,6 +19,10 @@ public class Cell {
         return neighbours;
     }
 
+    public long aliveNeighbours() {
+        return neighbours.stream().filter(Cell::isAlive).count();
+    }
+
     public boolean isAlive() {
         return isAlive;
     }

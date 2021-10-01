@@ -2,6 +2,9 @@ package com.minibootcamp.pasti.grid;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -29,5 +32,16 @@ public class CellTest {
         cell.die();
 
         assertFalse(cell.isAlive());
+    }
+
+    @Test
+    void populate_AddNeighboursAliveCount_WhenCellIsSetToAlive() {
+        Cell cell1 = new Cell();
+        Cell cell2 = new Cell();
+
+        cell1.setNeighbours(List.of(cell2));
+        cell2.populate();
+
+        assertEquals(1, cell1.aliveNeighbours());
     }
 }
