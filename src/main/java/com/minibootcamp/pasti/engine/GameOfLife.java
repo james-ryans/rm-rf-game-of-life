@@ -1,6 +1,5 @@
 package com.minibootcamp.pasti.engine;
 
-import com.minibootcamp.pasti.grid.Cell;
 import com.minibootcamp.pasti.grid.Grid;
 
 import java.awt.Point;
@@ -9,11 +8,13 @@ import java.util.List;
 public class GameOfLife {
     private int rows, cols;
     private Grid grid;
+    private Grid futureGrid;
 
     public GameOfLife(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         this.grid = new Grid(rows, cols);
+        this.futureGrid = new Grid(rows, cols);
     }
 
     public GameOfLife(int rows, int cols, List<Point> aliveCells) {
@@ -46,10 +47,22 @@ public class GameOfLife {
     }
 
     public void lifeCycle() {
-        if (rules(1, 1)) {
-            grid.cells[1][1].populate();
-        } else {
-            grid.cells[1][1].die();
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (rules(i, j)) {
+                    futureGrid.cells[i][j].populate();
+                } else {
+                    futureGrid.cells[i][j].die();
+                }
+            }
         }
+
+        swapGrid();
+    }
+
+    private void swapGrid() {
+        Grid tempGrid = grid;
+        grid = futureGrid;
+        futureGrid = tempGrid;
     }
 }

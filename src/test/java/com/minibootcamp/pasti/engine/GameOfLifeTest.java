@@ -94,7 +94,7 @@ class GameOfLifeTest {
     }
 
     @Test
-    void lifeCycle_SetCellAccordingToRules_OnlyAtTheMiddleOfTheGrid() {
+    void lifeCycle_SetCellStateAccordingToRules_OnlyAtTheMiddleOfTheGrid() {
         List<Point> aliveCells = List.of(
             new Point(0, 0), new Point(0, 1), new Point(0, 2)
         );
@@ -102,5 +102,20 @@ class GameOfLifeTest {
         game.lifeCycle();
 
         assertTrue(game.show()[1][1]);
+    }
+
+    @Test
+    void lifeCycle_SetCellsStateAccordingToRules_AllCells() {
+        List<Point> aliveCells = List.of(
+            new Point(0, 0), new Point(0, 1), new Point(0, 2)
+        );
+        GameOfLife game = new GameOfLife(3, 3, aliveCells);
+        game.lifeCycle();
+
+        boolean[][] expectedCells = new boolean[3][3];
+        expectedCells[0][1] = true;
+        expectedCells[1][1] = true;
+
+        assertArrayEquals(expectedCells, game.show());
     }
 }
