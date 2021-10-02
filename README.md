@@ -37,3 +37,7 @@ Use the Gradle Wrapper to run the app.
 ```bash
 ./gradlew run --console=plain
 ```
+
+## Demo
+
+![Glider Demo](./src/main/resources/glider-demo.gif)
