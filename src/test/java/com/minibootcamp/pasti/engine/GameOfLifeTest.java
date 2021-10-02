@@ -81,4 +81,15 @@ class GameOfLifeTest {
 
         assertFalse(game.rules(1, 1));
     }
+
+    @Test
+    void lifeCycle_SetCellsToDie_WhenHaveNoAliveNeighbours() {
+        List<Point> aliveCells = List.of(new Point(1, 1));
+        GameOfLife game = new GameOfLife(3, 3, aliveCells);
+        game.lifeCycle();
+
+        boolean[][] expectedCells = new boolean[3][3];
+
+        assertArrayEquals(expectedCells, game.show());
+    }
 }

@@ -44,4 +44,8 @@ public class GameOfLife {
         return (isAlive && 2 <= aliveNeighbours && aliveNeighbours <= 3)
             || (isDead && aliveNeighbours == 3);
     }
+
+    public void lifeCycle() {
+        grid.cells[1][1].die();
+    }
 }
