@@ -36,6 +36,12 @@ public class GameOfLifeFactory {
                 return middleweightSpaceship();
             case 14:
                 return heavyweightSpaceship();
+            case 15:
+                return theRPentomino();
+            case 16:
+                return diehard();
+            case 17:
+                return acorn();
             default:
                 throw new IOException("Number not recognized.");
         }
@@ -180,6 +186,32 @@ public class GameOfLifeFactory {
             new Point(13, 10), new Point(13, 16),
             new Point(14, 11), new Point(14, 12), new Point(14, 13),
             new Point(14, 14), new Point(14, 15), new Point(14, 16)
+        );
+    }
+
+    private static List<Point> theRPentomino() {
+        return List.of(
+            new Point(10, 11), new Point(10, 12),
+            new Point(11, 10), new Point(11, 11),
+            new Point(12, 11)
+        );
+    }
+
+    private static List<Point> diehard() {
+        return List.of(
+            new Point(10, 16),
+            new Point(11, 10), new Point(11, 11),
+            new Point(12, 11),
+            new Point(12, 15), new Point(12, 16), new Point(12, 17)
+        );
+    }
+
+    private static List<Point> acorn() {
+        return List.of(
+            new Point(10, 11),
+            new Point(11, 13),
+            new Point(12, 10), new Point(12, 11),
+            new Point(12, 14), new Point(12, 15), new Point(12, 16)
         );
     }
 }

@@ -66,6 +66,11 @@ public class App {
         System.out.println("13. Middle-weight Spaceship");
         System.out.println("14. Heavy-weight Spaceship");
         System.out.println();
+        System.out.println("Methuselahs (Chaos)");
+        System.out.println("15. The R-pentomino");
+        System.out.println("16. Diehard");
+        System.out.println("17. Acorn");
+        System.out.println();
         System.out.print("Pick a number: ");
 
         Scanner scanner = new Scanner(System.in);
