@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Grid {
     int rows, cols;
-    Cell[][] cells;
+    public Cell[][] cells;
 
     public Grid(int rows, int cols) {
         this.rows = rows;
