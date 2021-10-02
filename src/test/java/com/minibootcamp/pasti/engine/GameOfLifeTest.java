@@ -92,4 +92,15 @@ class GameOfLifeTest {
 
         assertArrayEquals(expectedCells, game.show());
     }
+
+    @Test
+    void lifeCycle_SetCellAccordingToRules_OnlyAtTheMiddleOfTheGrid() {
+        List<Point> aliveCells = List.of(
+            new Point(0, 0), new Point(0, 1), new Point(0, 2)
+        );
+        GameOfLife game = new GameOfLife(3, 3, aliveCells);
+        game.lifeCycle();
+
+        assertTrue(game.show()[1][1]);
+    }
 }

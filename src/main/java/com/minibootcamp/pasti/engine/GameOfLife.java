@@ -46,6 +46,10 @@ public class GameOfLife {
     }
 
     public void lifeCycle() {
-        grid.cells[1][1].die();
+        if (rules(1, 1)) {
+            grid.cells[1][1].populate();
+        } else {
+            grid.cells[1][1].die();
+        }
     }
 }
