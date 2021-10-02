@@ -109,10 +109,11 @@ class GameOfLifeTest {
         List<Point> aliveCells = List.of(
             new Point(0, 0), new Point(0, 1), new Point(0, 2)
         );
-        GameOfLife game = new GameOfLife(3, 3, aliveCells);
+        GameOfLife game = new GameOfLife(4, 4, aliveCells);
         game.lifeCycle();
 
-        boolean[][] expectedCells = new boolean[3][3];
+        boolean[][] expectedCells = new boolean[4][4];
+        expectedCells[3][1] = true;
         expectedCells[0][1] = true;
         expectedCells[1][1] = true;
 

@@ -31,11 +31,9 @@ public class Grid {
 
         List<Cell> neighbours = new ArrayList<>(List.of());
         for (int i = 0; i < 8; i++) {
-            int x = row + neighbourX.get(i);
-            int y = col + neighbourY.get(i);
-            if (0 <= x && x < rows && 0 <= y && y < cols) {
-                neighbours.add(cells[x][y]);
-            }
+            int x = (row + neighbourX.get(i) + rows) % rows;
+            int y = (col + neighbourY.get(i) + cols) % cols;
+            neighbours.add(cells[x][y]);
         }
 
         return neighbours;

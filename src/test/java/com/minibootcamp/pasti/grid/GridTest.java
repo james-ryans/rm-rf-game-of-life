@@ -30,10 +30,11 @@ public class GridTest {
     }
 
     @Test
-    void getNeighbours_ReturnListWithoutItsTopNeighbours_AtTopmostCell() {
+    void getNeighbours_ReturnListWithBottommostAsNeighbours_AtTopmostCell() {
         Grid grid = new Grid(3, 3);
 
         List<Cell> expectedNeighbours = List.of(
+            grid.cells[2][0], grid.cells[2][1], grid.cells[2][2],
             grid.cells[0][0], grid.cells[0][2],
             grid.cells[1][0], grid.cells[1][1], grid.cells[1][2]
         );
@@ -42,38 +43,39 @@ public class GridTest {
     }
 
     @Test
-    void getNeighbours_ReturnListWithoutItsBottomNeighbours_AtBottommostCell() {
+    void getNeighbours_ReturnListWithTopmostAsNeighbours_AtBottommostCell() {
         Grid grid = new Grid(3, 3);
 
         List<Cell> expectedNeighbours = List.of(
             grid.cells[1][0], grid.cells[1][1], grid.cells[1][2],
-            grid.cells[2][0], grid.cells[2][2]
+            grid.cells[2][0], grid.cells[2][2],
+            grid.cells[0][0], grid.cells[0][1], grid.cells[0][2]
         );
 
         assertEquals(expectedNeighbours, grid.cells[2][1].getNeighbours());
     }
 
     @Test
-    void getNeighbours_ReturnListWithoutItsLeftNeighbours_AtLeftmostCell() {
+    void getNeighbours_ReturnListWithRightmostAsNeighbours_AtLeftmostCell() {
         Grid grid = new Grid(3, 3);
 
         List<Cell> expectedNeighbours = List.of(
-            grid.cells[0][0], grid.cells[0][1],
-            grid.cells[1][1],
-            grid.cells[2][0], grid.cells[2][1]
+            grid.cells[0][2], grid.cells[0][0], grid.cells[0][1],
+            grid.cells[1][2], grid.cells[1][1],
+            grid.cells[2][2], grid.cells[2][0], grid.cells[2][1]
         );
 
         assertEquals(expectedNeighbours, grid.cells[1][0].getNeighbours());
     }
 
     @Test
-    void getNeighbours_ReturnListWithoutItsRightNeighbours_AtRightmostCell() {
+    void getNeighbours_ReturnListWithLeftmostAsNeighbours_AtRightmostCell() {
         Grid grid = new Grid(3, 3);
 
         List<Cell> expectedNeighbours = List.of(
-            grid.cells[0][1], grid.cells[0][2],
-            grid.cells[1][1],
-            grid.cells[2][1], grid.cells[2][2]
+            grid.cells[0][1], grid.cells[0][2], grid.cells[0][0],
+            grid.cells[1][1], grid.cells[1][0],
+            grid.cells[2][1], grid.cells[2][2], grid.cells[2][0]
         );
 
         assertEquals(expectedNeighbours, grid.cells[1][2].getNeighbours());
