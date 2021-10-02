@@ -6,6 +6,7 @@ import java.awt.Point;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameOfLifeTest {
@@ -47,5 +48,16 @@ class GameOfLifeTest {
         GameOfLife game = new GameOfLife(3, 3, aliveCells);
 
         assertTrue(game.rules(1, 1));
+    }
+
+    @Test
+    void rules_ReturnFalse_WhenCellIsAliveAndHasLowerThanTwoAliveNeighbours() {
+        List<Point> aliveCells = List.of(
+            new Point(0, 1),
+            new Point(1, 1)
+        );
+        GameOfLife game = new GameOfLife(3, 3, aliveCells);
+
+        assertFalse(game.rules(1, 1));
     }
 }
