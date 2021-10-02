@@ -1,5 +1,6 @@
 package com.minibootcamp.pasti.engine;
 
+import com.minibootcamp.pasti.grid.Cell;
 import com.minibootcamp.pasti.grid.Grid;
 
 import java.awt.Point;
@@ -33,5 +34,9 @@ public class GameOfLife {
         }
 
         return cells;
+    }
+
+    public boolean rules(int row, int col) {
+        return true;
     }
 }
