@@ -19,6 +19,10 @@ application {
     mainClassName = 'com.minibootcamp.pasti.Main'
 }
 
+run {
+    standardInput = System.in
+}
+
 test {
     useJUnitPlatform()
 }

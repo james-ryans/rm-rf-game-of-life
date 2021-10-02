@@ -35,5 +35,5 @@ Use the Gradle Wrapper to run the tests.
 
 Use the Gradle Wrapper to run the app.
 ```bash
-./gradlew run
+./gradlew run --console=plain
 ```

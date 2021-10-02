@@ -1,9 +1,12 @@
 package com.minibootcamp.pasti.gui;
 
 import com.minibootcamp.pasti.engine.GameOfLife;
+import com.minibootcamp.pasti.engine.GameOfLifeFactory;
 
 import java.awt.Point;
+import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class App {
@@ -12,8 +15,12 @@ public class App {
     GameOfLife game;
 
     public void run() {
-        initialize();
-        simulate();
+        try {
+            initialize();
+            simulate();
+        } catch (IOException e) {
+            System.out.println("Number not recognized.");
+        }
     }
 
     private void simulate() {
@@ -29,11 +36,29 @@ public class App {
         }
     }
 
-    private void initialize() {
-        List<Point> initialAliveCells = List.of(
-            new Point(3, 3), new Point(3, 4), new Point(3, 5)
-        );
-        game = new GameOfLife(ROWS, COLS, initialAliveCells);
+    private void initialize() throws IOException {
+        List<Point> initialPattern = welcomingInput();
+        game = new GameOfLife(ROWS, COLS, initialPattern);
+    }
+
+    private List<Point> welcomingInput() throws IOException {
+        clearScreen();
+        System.out.println("Welcome to Conway's Game Of Life!");
+        System.out.println("Press Ctrl+C to stop.");
+        System.out.println();
+        System.out.println("Still lifes");
+        System.out.println("1. Block");
+        System.out.println("2. Bee-hive");
+        System.out.println("3. Loaf");
+        System.out.println("4. Boat");
+        System.out.println("5. Tub");
+        System.out.print("Pick a number: ");
+
+        Scanner scanner = new Scanner(System.in);
+        int initialNumber = scanner.nextInt();
+        scanner.close();
+
+        return GameOfLifeFactory.generatePattern(initialNumber);
     }
 
     private void print(boolean[][] cells) {
