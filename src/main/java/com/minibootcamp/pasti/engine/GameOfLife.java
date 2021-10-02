@@ -37,6 +37,7 @@ public class GameOfLife {
     }
 
     public boolean rules(int row, int col) {
-        return grid.cells[row][col].aliveNeighbours() >= 2;
+        long aliveNeighbours = grid.cells[row][col].aliveNeighbours();
+        return 2 <= aliveNeighbours && aliveNeighbours <= 3;
     }
 }
