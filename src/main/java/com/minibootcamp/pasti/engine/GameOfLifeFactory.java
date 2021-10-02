@@ -28,6 +28,14 @@ public class GameOfLifeFactory {
                 return pulsar();
             case 10:
                 return pentaDecathlon();
+            case 11:
+                return glider();
+            case 12:
+                return lightweightSpaceship();
+            case 13:
+                return middleweightSpaceship();
+            case 14:
+                return heavyweightSpaceship();
             default:
                 throw new IOException("Number not recognized.");
         }
@@ -132,6 +140,46 @@ public class GameOfLifeFactory {
             new Point(20, 12), new Point(20, 16),
             new Point(21, 13), new Point(21, 15),
             new Point(22, 14)
+        );
+    }
+
+    private static List<Point> glider() {
+        return List.of(
+            new Point(10, 12),
+            new Point(11, 10), new Point(11, 12),
+            new Point(12, 11), new Point(12, 12)
+        );
+    }
+
+    private static List<Point> lightweightSpaceship() {
+        return List.of(
+            new Point(10, 10), new Point(10, 13),
+            new Point(11, 14),
+            new Point(12, 10), new Point(12, 14),
+            new Point(13, 11), new Point(13, 12), new Point(13, 13),
+            new Point(13, 14)
+        );
+    }
+
+    private static List<Point> middleweightSpaceship() {
+        return List.of(
+            new Point(10, 12),
+            new Point(11, 10), new Point(11, 14),
+            new Point(12, 15),
+            new Point(13, 10), new Point(13, 15),
+            new Point(14, 11), new Point(14, 12), new Point(14, 13),
+            new Point(14, 14), new Point(14, 15)
+        );
+    }
+
+    private static List<Point> heavyweightSpaceship() {
+        return List.of(
+            new Point(10, 12), new Point(10, 13),
+            new Point(11, 10), new Point(11, 15),
+            new Point(12, 16),
+            new Point(13, 10), new Point(13, 16),
+            new Point(14, 11), new Point(14, 12), new Point(14, 13),
+            new Point(14, 14), new Point(14, 15), new Point(14, 16)
         );
     }
 }

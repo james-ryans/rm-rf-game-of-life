@@ -60,6 +60,12 @@ public class App {
         System.out.println("9. Pulsar");
         System.out.println("10. Penta-decathlon");
         System.out.println();
+        System.out.println("Spaceships");
+        System.out.println("11. Glider");
+        System.out.println("12. Light-weight Spaceship");
+        System.out.println("13. Middle-weight Spaceship");
+        System.out.println("14. Heavy-weight Spaceship");
+        System.out.println();
         System.out.print("Pick a number: ");
 
         Scanner scanner = new Scanner(System.in);
