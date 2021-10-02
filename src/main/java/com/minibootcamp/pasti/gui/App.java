@@ -52,6 +52,14 @@ public class App {
         System.out.println("3. Loaf");
         System.out.println("4. Boat");
         System.out.println("5. Tub");
+        System.out.println();
+        System.out.println("Oscillators");
+        System.out.println("6. Blinker");
+        System.out.println("7. Toad");
+        System.out.println("8. Beacon");
+        System.out.println("9. Pulsar");
+        System.out.println("10. Penta-decathlon");
+        System.out.println();
         System.out.print("Pick a number: ");
 
         Scanner scanner = new Scanner(System.in);
